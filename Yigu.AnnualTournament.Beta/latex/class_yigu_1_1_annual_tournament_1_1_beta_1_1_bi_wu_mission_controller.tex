@@ -1,0 +1,304 @@
+\doxysection{Yigu.\+Annual\+Tournament.\+Beta.\+Bi\+Wu\+Mission\+Controller Class Reference}
+\hypertarget{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller}{}\label{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller}\index{Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}}
+
+
+比武场任务控制器类。  
+
+
+
+
+Inheritance diagram for Yigu.\+Annual\+Tournament.\+Beta.\+Bi\+Wu\+Mission\+Controller\+:
+% FIG 0
+
+
+Collaboration diagram for Yigu.\+Annual\+Tournament.\+Beta.\+Bi\+Wu\+Mission\+Controller\+:
+% FIG 1
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_a5468c82e480689edcef42b59ac49e56b}{Bi\+Wu\+Mission\+Controller}} (Culture\+Object culture, \mbox{\hyperlink{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_game_af112332e394597fea78f999eb37cf8da}{Bi\+Wu\+Game.\+Equipment\+Type}} equipment\+Type)
+\begin{DoxyCompactList}\small\item\em 构造函数，初始化比武任务控制器。 \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_ae010f6cf013779016ae82f66900dd03d}{On\+Behavior\+Initialize}} ()
+\begin{DoxyCompactList}\small\item\em 初始化任务行为时的回调函数。 \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_aee92b157a90b9f82bb9b0a8f7b0b5a35}{After\+Start}} ()
+\begin{DoxyCompactList}\small\item\em 比赛开始后的初始化逻辑。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_a8b953e8a6fb6706daa4b2e0a3c2eeda4}{Prepare\+For\+Match}} ()
+\begin{DoxyCompactList}\small\item\em 准备比赛。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_adc43aed02a5bdd0dc2b34a04af9432c1}{Start\+Match}} (Tournament\+Match match, bool is\+Last\+Round)
+\begin{DoxyCompactList}\small\item\em 开始一场比赛。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_a192de64e274b9cd4ad23fbf6be787424}{Skip\+Match}} (Tournament\+Match match)
+\begin{DoxyCompactList}\small\item\em 跳过当前比赛并模拟比赛结果。 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_ae57bf4267ed7460cfbe37b3dd0a25abf}{Is\+Match\+Ended}} ()
+\begin{DoxyCompactList}\small\item\em 判断比赛是否已结束。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_ae3dd072223d42251ca542978db2740c9}{On\+Match\+Results\+Ready}} ()
+\begin{DoxyCompactList}\small\item\em 比赛结果准备时的回调函数。 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_afdd4c449f4ede29de2478d086f788cce}{On\+Match\+Ended}} ()
+\begin{DoxyCompactList}\small\item\em 比赛结束时的回调函数。 \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_a16f707c4785309141254a2bcabf68057}{On\+Agent\+Removed}} (Agent affected\+Agent, Agent affector\+Agent, Agent\+State agent\+State, Killing\+Blow killing\+Blow)
+\begin{DoxyCompactList}\small\item\em 处理参赛选手被移除时的逻辑。 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_a0e51fbc8432c6225c0410a2117f4390f}{Can\+Agent\+Rout}} (Agent agent)
+\begin{DoxyCompactList}\small\item\em 检查代理人是否能逃跑。 \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_a0ec8e6009267ae2258d5f3907bdba684}{On\+Score\+Hit}} (Agent affected\+Agent, Agent affector\+Agent, Weapon\+Component\+Data attacker\+Weapon, bool is\+Blocked, bool is\+Siege\+Engine\+Hit, in Blow blow, in Attack\+Collision\+Data collision\+Data, float damaged\+Hp, float hit\+Distance, float shot\+Difficulty)
+\begin{DoxyCompactList}\small\item\em 处理在比赛中被击中得分的事件 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_aa5e89313c9acaf0dfc400e869cbf6bf2}{Check\+If\+Is\+There\+Any\+Enemies}} ()
+\begin{DoxyCompactList}\small\item\em 检查是否存在敌方团队 \end{DoxyCompactList}\item 
+override Inquiry\+Data \mbox{\hyperlink{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_aa975d9946d78d3a9de109c4ecdf60017}{On\+End\+Mission\+Request}} (out bool can\+Player\+Leave)
+\begin{DoxyCompactList}\small\item\em 处理比赛结束后的请求 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_a57893d8b25b844340a9b397c861c38fd}{On\+End\+Mission}} ()
+\begin{DoxyCompactList}\small\item\em 任务结束时的回调函数。 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+比武场任务控制器类。 
+
+负责控制比武比赛的相关逻辑，包括初始化任务行为、比赛准备和比赛开始等功能。 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_a5468c82e480689edcef42b59ac49e56b}\index{Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}!BiWuMissionController@{BiWuMissionController}}
+\index{BiWuMissionController@{BiWuMissionController}!Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}}
+\doxysubsubsection{\texorpdfstring{BiWuMissionController()}{BiWuMissionController()}}
+{\footnotesize\ttfamily \label{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_a5468c82e480689edcef42b59ac49e56b} 
+Yigu.\+Annual\+Tournament.\+Beta.\+Bi\+Wu\+Mission\+Controller.\+Bi\+Wu\+Mission\+Controller (\begin{DoxyParamCaption}\item[{Culture\+Object}]{culture}{, }\item[{\mbox{\hyperlink{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_game_af112332e394597fea78f999eb37cf8da}{Bi\+Wu\+Game.\+Equipment\+Type}}}]{equipment\+Type}{}\end{DoxyParamCaption})}
+
+
+
+构造函数，初始化比武任务控制器。 
+
+
+\begin{DoxyParams}{Parameters}
+{\em culture} & 比赛使用的文化对象。 \\
+\hline
+{\em equipment\+Type} & 比赛使用的装备类型。 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_aee92b157a90b9f82bb9b0a8f7b0b5a35}\index{Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}!AfterStart@{AfterStart}}
+\index{AfterStart@{AfterStart}!Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}}
+\doxysubsubsection{\texorpdfstring{AfterStart()}{AfterStart()}}
+{\footnotesize\ttfamily \label{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_aee92b157a90b9f82bb9b0a8f7b0b5a35} 
+override void Yigu.\+Annual\+Tournament.\+Beta.\+Bi\+Wu\+Mission\+Controller.\+After\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+比赛开始后的初始化逻辑。 
+
+包括显示比赛开始的消息、清理多余的比赛场景元素，以及初始化生成点。 \Hypertarget{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_a0e51fbc8432c6225c0410a2117f4390f}\index{Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}!CanAgentRout@{CanAgentRout}}
+\index{CanAgentRout@{CanAgentRout}!Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}}
+\doxysubsubsection{\texorpdfstring{CanAgentRout()}{CanAgentRout()}}
+{\footnotesize\ttfamily \label{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_a0e51fbc8432c6225c0410a2117f4390f} 
+bool Yigu.\+Annual\+Tournament.\+Beta.\+Bi\+Wu\+Mission\+Controller.\+Can\+Agent\+Rout (\begin{DoxyParamCaption}\item[{Agent}]{agent}{}\end{DoxyParamCaption})}
+
+
+
+检查代理人是否能逃跑。 
+
+目前该方法始终返回 {\ttfamily false}，表示代理人无法逃跑。
+
+
+\begin{DoxyParams}{Parameters}
+{\em agent} & 需要检查的代理人。 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+始终返回 {\ttfamily false}，表示代理人无法逃跑。 
+\end{DoxyReturn}
+\Hypertarget{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_aa5e89313c9acaf0dfc400e869cbf6bf2}\index{Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}!CheckIfIsThereAnyEnemies@{CheckIfIsThereAnyEnemies}}
+\index{CheckIfIsThereAnyEnemies@{CheckIfIsThereAnyEnemies}!Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}}
+\doxysubsubsection{\texorpdfstring{CheckIfIsThereAnyEnemies()}{CheckIfIsThereAnyEnemies()}}
+{\footnotesize\ttfamily \label{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_aa5e89313c9acaf0dfc400e869cbf6bf2} 
+bool Yigu.\+Annual\+Tournament.\+Beta.\+Bi\+Wu\+Mission\+Controller.\+Check\+If\+Is\+There\+Any\+Enemies (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+检查是否存在敌方团队 
+
+该方法遍历当前比赛中的所有代理，检查是否有敌对团队的存在。若当前有不同团队的代理同时参与比赛， 则返回 true，否则返回 false。
+
+\begin{DoxyReturn}{Returns}
+如果有敌方团队，则返回 true；否则返回 false。 
+\end{DoxyReturn}
+\Hypertarget{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_ae57bf4267ed7460cfbe37b3dd0a25abf}\index{Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}!IsMatchEnded@{IsMatchEnded}}
+\index{IsMatchEnded@{IsMatchEnded}!Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}}
+\doxysubsubsection{\texorpdfstring{IsMatchEnded()}{IsMatchEnded()}}
+{\footnotesize\ttfamily \label{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_ae57bf4267ed7460cfbe37b3dd0a25abf} 
+bool Yigu.\+Annual\+Tournament.\+Beta.\+Bi\+Wu\+Mission\+Controller.\+Is\+Match\+Ended (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+判断比赛是否已结束。 
+
+根据比赛的状态和计时器判断比赛是否结束。
+
+\begin{DoxyReturn}{Returns}
+如果比赛结束返回 true，否则返回 false。 
+\end{DoxyReturn}
+\Hypertarget{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_a16f707c4785309141254a2bcabf68057}\index{Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}!OnAgentRemoved@{OnAgentRemoved}}
+\index{OnAgentRemoved@{OnAgentRemoved}!Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}}
+\doxysubsubsection{\texorpdfstring{OnAgentRemoved()}{OnAgentRemoved()}}
+{\footnotesize\ttfamily \label{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_a16f707c4785309141254a2bcabf68057} 
+override void Yigu.\+Annual\+Tournament.\+Beta.\+Bi\+Wu\+Mission\+Controller.\+On\+Agent\+Removed (\begin{DoxyParamCaption}\item[{Agent}]{affected\+Agent}{, }\item[{Agent}]{affector\+Agent}{, }\item[{Agent\+State}]{agent\+State}{, }\item[{Killing\+Blow}]{killing\+Blow}{}\end{DoxyParamCaption})}
+
+
+
+处理参赛选手被移除时的逻辑。 
+
+当一个参赛选手被移除时，如果比赛未结束且移除者与受害者不是同一个人，且两者都为人类角色，则从存活参赛选手列表和当前比赛选手列表中移除该选手。 如果该选手所在的队伍已死亡，则从存活队伍列表中移除该队伍，并为剩余队伍加分。
+
+
+\begin{DoxyParams}{Parameters}
+{\em affected\+Agent} & 受害的代理人。 \\
+\hline
+{\em affector\+Agent} & 造成受害的代理人。 \\
+\hline
+{\em agent\+State} & 受害代理人当前的状态。 \\
+\hline
+{\em killing\+Blow} & 造成死亡的致命一击。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_ae010f6cf013779016ae82f66900dd03d}\index{Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}!OnBehaviorInitialize@{OnBehaviorInitialize}}
+\index{OnBehaviorInitialize@{OnBehaviorInitialize}!Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}}
+\doxysubsubsection{\texorpdfstring{OnBehaviorInitialize()}{OnBehaviorInitialize()}}
+{\footnotesize\ttfamily \label{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_ae010f6cf013779016ae82f66900dd03d} 
+override void Yigu.\+Annual\+Tournament.\+Beta.\+Bi\+Wu\+Mission\+Controller.\+On\+Behavior\+Initialize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+初始化任务行为时的回调函数。 
+
+添加任务行为的初始化逻辑，例如绑定特定的条件检查函数。 \Hypertarget{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_a57893d8b25b844340a9b397c861c38fd}\index{Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}!OnEndMission@{OnEndMission}}
+\index{OnEndMission@{OnEndMission}!Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}}
+\doxysubsubsection{\texorpdfstring{OnEndMission()}{OnEndMission()}}
+{\footnotesize\ttfamily \label{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_a57893d8b25b844340a9b397c861c38fd} 
+override void Yigu.\+Annual\+Tournament.\+Beta.\+Bi\+Wu\+Mission\+Controller.\+On\+End\+Mission (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+任务结束时的回调函数。 
+
+在任务结束时取消附加的条件检查。 \Hypertarget{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_aa975d9946d78d3a9de109c4ecdf60017}\index{Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}!OnEndMissionRequest@{OnEndMissionRequest}}
+\index{OnEndMissionRequest@{OnEndMissionRequest}!Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}}
+\doxysubsubsection{\texorpdfstring{OnEndMissionRequest()}{OnEndMissionRequest()}}
+{\footnotesize\ttfamily \label{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_aa975d9946d78d3a9de109c4ecdf60017} 
+override Inquiry\+Data Yigu.\+Annual\+Tournament.\+Beta.\+Bi\+Wu\+Mission\+Controller.\+On\+End\+Mission\+Request (\begin{DoxyParamCaption}\item[{out bool}]{can\+Player\+Leave}{}\end{DoxyParamCaption})}
+
+
+
+处理比赛结束后的请求 
+
+该方法在比赛结束时被调用，判断玩家是否可以离开当前比赛，并根据比赛情况生成相应的询问数据。首先检查当前比赛是否存在，如果玩家参与了比赛并且存在玩家控制的代理，判断玩家是否接近敌人或者是否有其他敌人存在。如果有敌人，则生成一个询问数据，询问玩家是否要放弃比赛；否则强制结束比赛。如果没有敌人或玩家不参与比赛，依旧会生成跳过比赛的询问数据。
+
+
+\begin{DoxyParams}{Parameters}
+{\em can\+Player\+Leave} & 返回值，表示玩家是否可以离开比赛。\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+返回一个包含询问数据的对象，用于决定比赛结束后的操作。 
+\end{DoxyReturn}
+\Hypertarget{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_afdd4c449f4ede29de2478d086f788cce}\index{Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}!OnMatchEnded@{OnMatchEnded}}
+\index{OnMatchEnded@{OnMatchEnded}!Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}}
+\doxysubsubsection{\texorpdfstring{OnMatchEnded()}{OnMatchEnded()}}
+{\footnotesize\ttfamily \label{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_afdd4c449f4ede29de2478d086f788cce} 
+void Yigu.\+Annual\+Tournament.\+Beta.\+Bi\+Wu\+Mission\+Controller.\+On\+Match\+Ended (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+比赛结束时的回调函数。 
+
+结束比赛时，清理比赛相关的状态，如移除当前参赛选手、清理尸体、清除队伍数据等。 \Hypertarget{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_ae3dd072223d42251ca542978db2740c9}\index{Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}!OnMatchResultsReady@{OnMatchResultsReady}}
+\index{OnMatchResultsReady@{OnMatchResultsReady}!Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}}
+\doxysubsubsection{\texorpdfstring{OnMatchResultsReady()}{OnMatchResultsReady()}}
+{\footnotesize\ttfamily \label{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_ae3dd072223d42251ca542978db2740c9} 
+void Yigu.\+Annual\+Tournament.\+Beta.\+Bi\+Wu\+Mission\+Controller.\+On\+Match\+Results\+Ready (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+比赛结果准备时的回调函数。 
+
+根据玩家是否参与比赛以及比赛结果，显示不同的提示信息。 \Hypertarget{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_a0ec8e6009267ae2258d5f3907bdba684}\index{Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}!OnScoreHit@{OnScoreHit}}
+\index{OnScoreHit@{OnScoreHit}!Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}}
+\doxysubsubsection{\texorpdfstring{OnScoreHit()}{OnScoreHit()}}
+{\footnotesize\ttfamily \label{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_a0ec8e6009267ae2258d5f3907bdba684} 
+override void Yigu.\+Annual\+Tournament.\+Beta.\+Bi\+Wu\+Mission\+Controller.\+On\+Score\+Hit (\begin{DoxyParamCaption}\item[{Agent}]{affected\+Agent}{, }\item[{Agent}]{affector\+Agent}{, }\item[{Weapon\+Component\+Data}]{attacker\+Weapon}{, }\item[{bool}]{is\+Blocked}{, }\item[{bool}]{is\+Siege\+Engine\+Hit}{, }\item[{in Blow}]{blow}{, }\item[{in Attack\+Collision\+Data}]{collision\+Data}{, }\item[{float}]{damaged\+Hp}{, }\item[{float}]{hit\+Distance}{, }\item[{float}]{shot\+Difficulty}{}\end{DoxyParamCaption})}
+
+
+
+处理在比赛中被击中得分的事件 
+
+当一个代理被击中并导致得分变化时触发此方法。该方法会检查被击中代理和攻击代理的有效性，并计算造成的伤害。 基于所造成的伤害，调用 {\ttfamily Enemy\+Hit\+Reward} 方法来奖励攻击者。
+
+
+\begin{DoxyParams}{Parameters}
+{\em affected\+Agent} & 受击的代理 \\
+\hline
+{\em affector\+Agent} & 造成伤害的代理 \\
+\hline
+{\em attacker\+Weapon} & 攻击者使用的武器 \\
+\hline
+{\em is\+Blocked} & 是否被挡住 \\
+\hline
+{\em is\+Siege\+Engine\+Hit} & 是否为攻城器械的击打 \\
+\hline
+{\em blow} & 造成的击打数据，包含伤害信息 \\
+\hline
+{\em collision\+Data} & 碰撞数据 \\
+\hline
+{\em damaged\+Hp} & 受击代理失去的生命值 \\
+\hline
+{\em hit\+Distance} & 攻击发生的距离 \\
+\hline
+{\em shot\+Difficulty} & 攻击的难度系数 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_a8b953e8a6fb6706daa4b2e0a3c2eeda4}\index{Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}!PrepareForMatch@{PrepareForMatch}}
+\index{PrepareForMatch@{PrepareForMatch}!Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}}
+\doxysubsubsection{\texorpdfstring{PrepareForMatch()}{PrepareForMatch()}}
+{\footnotesize\ttfamily \label{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_a8b953e8a6fb6706daa4b2e0a3c2eeda4} 
+void Yigu.\+Annual\+Tournament.\+Beta.\+Bi\+Wu\+Mission\+Controller.\+Prepare\+For\+Match (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+准备比赛。 
+
+为比赛的所有参赛选手分配装备。 \Hypertarget{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_a192de64e274b9cd4ad23fbf6be787424}\index{Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}!SkipMatch@{SkipMatch}}
+\index{SkipMatch@{SkipMatch}!Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}}
+\doxysubsubsection{\texorpdfstring{SkipMatch()}{SkipMatch()}}
+{\footnotesize\ttfamily \label{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_a192de64e274b9cd4ad23fbf6be787424} 
+void Yigu.\+Annual\+Tournament.\+Beta.\+Bi\+Wu\+Mission\+Controller.\+Skip\+Match (\begin{DoxyParamCaption}\item[{Tournament\+Match}]{match}{}\end{DoxyParamCaption})}
+
+
+
+跳过当前比赛并模拟比赛结果。 
+
+
+\begin{DoxyParams}{Parameters}
+{\em match} & 当前比赛的匹配信息。 \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_adc43aed02a5bdd0dc2b34a04af9432c1}\index{Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}!StartMatch@{StartMatch}}
+\index{StartMatch@{StartMatch}!Yigu.AnnualTournament.Beta.BiWuMissionController@{Yigu.AnnualTournament.Beta.BiWuMissionController}}
+\doxysubsubsection{\texorpdfstring{StartMatch()}{StartMatch()}}
+{\footnotesize\ttfamily \label{class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_mission_controller_adc43aed02a5bdd0dc2b34a04af9432c1} 
+void Yigu.\+Annual\+Tournament.\+Beta.\+Bi\+Wu\+Mission\+Controller.\+Start\+Match (\begin{DoxyParamCaption}\item[{Tournament\+Match}]{match}{, }\item[{bool}]{is\+Last\+Round}{}\end{DoxyParamCaption})}
+
+
+
+开始一场比赛。 
+
+
+\begin{DoxyParams}{Parameters}
+{\em match} & 当前比赛的匹配信息。 \\
+\hline
+{\em is\+Last\+Round} & 是否为最后一轮比赛。\\
+\hline
+\end{DoxyParams}
+负责设置比赛模式、分配团队、生成参赛选手并设置团队敌对关系。 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Yigu.\+Annual\+Tournament.\+Beta/Sub\+Module.\+cs\end{DoxyCompactItemize}

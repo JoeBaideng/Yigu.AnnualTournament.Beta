@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['maximumparticipantcount_0',['MaximumParticipantCount',['../class_yigu_1_1_annual_tournament_1_1_beta_1_1_archery_tournament_game.html#af5bbc4462a14d33c681b9bb7de2f9d82',1,'Yigu.AnnualTournament.Beta.ArcheryTournamentGame.MaximumParticipantCount'],['../class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_game.html#ac33f5511e7a4db45f25ef7b3e2f0a678',1,'Yigu.AnnualTournament.Beta.BiWuGame.MaximumParticipantCount']]],
+  ['maxteamnumberpermatch_1',['MaxTeamNumberPerMatch',['../class_yigu_1_1_annual_tournament_1_1_beta_1_1_archery_tournament_game.html#ab360575090a3e20b842f107dc7ee61e7',1,'Yigu.AnnualTournament.Beta.ArcheryTournamentGame.MaxTeamNumberPerMatch'],['../class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_game.html#a6ab604f5c65eac314e5ab92626fc8aef',1,'Yigu.AnnualTournament.Beta.BiWuGame.MaxTeamNumberPerMatch']]],
+  ['maxteamsize_2',['MaxTeamSize',['../class_yigu_1_1_annual_tournament_1_1_beta_1_1_archery_tournament_game.html#a67674336c395da7f3d3d2b3b08f88b55',1,'Yigu.AnnualTournament.Beta.ArcheryTournamentGame.MaxTeamSize'],['../class_yigu_1_1_annual_tournament_1_1_beta_1_1_bi_wu_game.html#a744d70f2f9db17685d7a248e408af0b1',1,'Yigu.AnnualTournament.Beta.BiWuGame.MaxTeamSize']]]
+];
