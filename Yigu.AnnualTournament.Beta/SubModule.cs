@@ -37,6 +37,7 @@ using TaleWorlds.MountAndBlade.Source.Missions;
 using System.Xml.Linq;
 using TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Party;
 
 
 
@@ -109,7 +110,7 @@ namespace Yigu.AnnualTournament.Beta
                 "town_arena", // 目标菜单-竞技场
                 "yigu_biwu", // 菜单选项的唯一标识
                 "{=*}触发年度比武", // 菜单选项显示的文本
-                (MenuCallbackArgs args) => { return AnnualTournamentManager.Instance.isActive; }, // 显示条件,有比赛时才显示
+                (MenuCallbackArgs args) => { return AnnualTournamentManager.Instance.isGameBeingHeld; }, // 显示条件,有比赛时才显示
                 game_menu_town_biwu_on_consequence); // 选中后的行动
 
             campaignGameStarter.AddGameMenu("biwu_to_join", "{=*}年度比武正在如火如荼地举办，请按顺序参加比赛", new OnInitDelegate(this.game_menu_biwu_join_on_init), GameOverlays.MenuOverlayType.SettlementWithBoth, GameMenu.MenuFlags.None, null);
@@ -146,6 +147,12 @@ namespace Yigu.AnnualTournament.Beta
             //    (MenuCallbackArgs args) => { return true; }, // 显示条件,一直可以显示
             //    game_menu_town_biwu_chiji_on_consequence); // 选中后的行动
 
+            campaignGameStarter.AddGameMenuOption(
+                "biwu_to_join", // 目标菜单-竞技场
+                "finish_biwu", // 菜单选项的唯一标识
+                "{=*}比武完成", // 菜单选项显示的文本
+                (MenuCallbackArgs args) => { return true; }, // 显示条件,一直可以显示
+                game_menu_town_biwu_finish_on_consequence); // 选中后的行动
 
             campaignGameStarter.AddGameMenuOption(
                 "biwu_to_join", // 目标菜单-竞技场
@@ -231,6 +238,22 @@ namespace Yigu.AnnualTournament.Beta
         {
 
         }
+        private static void game_menu_town_biwu_finish_on_consequence(MenuCallbackArgs args)
+        {
+            if(AnnualTournamentManager.Instance.isGameBeingHeld)
+            {
+                if (AnnualTournamentManager.Instance.currentTournament.IsActive)
+                    if (AnnualTournamentManager.Instance.currentTournament.AllFinished)
+                    {
+                        AnnualTournamentManager.Instance.currentTournament.OnEnd();
+                    }
+                    else
+                    {
+                        InformationManager.DisplayMessage(new InformationMessage("{=*}比武尚未结束，请参与完所有比赛后点击"));
+                    }
+            }
+            
+        }
 
     }
 
@@ -238,7 +261,7 @@ namespace Yigu.AnnualTournament.Beta
     {
         private static AnnualTournamentManager _instance;
         public AnnualTournament currentTournament; // 当前正在进行的比赛实例
-        public bool isActive { get; private set; }// 表示当前是否正在进行一场比赛
+        public bool isGameBeingHeld { get; private set; }// 表示当前是否正在进行一场比赛
         private int endDay = 25;
         private int startDay = 1;
         public Town town { get; private set; }
@@ -257,7 +280,7 @@ namespace Yigu.AnnualTournament.Beta
         private AnnualTournamentManager()
         {
             currentTournament = null;
-            isActive = false;
+            isGameBeingHeld = false;
             town = Settlement.Find("town_A1").Town;//测试，在阿塞莱的Quyaz
         }
 
@@ -270,11 +293,11 @@ namespace Yigu.AnnualTournament.Beta
         private void OnDailyTick()
         {
             // 比赛触发逻辑，根据游戏日期检查是否需要触发新比赛
-            if (!isActive && ShouldStartTournament())
+            if (!isGameBeingHeld && ShouldStartTournament())
             {
                 StartNewTournament(this.town);
             }
-            if (isActive && ShouldEndTournament())
+            if (isGameBeingHeld && ShouldEndTournament())
             {
                 EndTournament();
             }
@@ -294,7 +317,7 @@ namespace Yigu.AnnualTournament.Beta
         }
         public void StartNewTournament(Town venue)
         {
-            if (isActive)
+            if (isGameBeingHeld)
             {
                 return; // 防止重复触发
             }
@@ -302,7 +325,7 @@ namespace Yigu.AnnualTournament.Beta
             currentTournament = new AnnualTournament(venue);
 
             currentTournament.OnStart();
-            isActive = true;
+            isGameBeingHeld = true;
             
             InformationManager.DisplayMessage(new InformationMessage($"年度比武正在 {venue.Name} 举办，请在25天内前往参赛"));
 
@@ -310,7 +333,7 @@ namespace Yigu.AnnualTournament.Beta
 
         public void EndTournament()
         {
-            if (currentTournament == null || !isActive)
+            if (currentTournament == null || !isGameBeingHeld)
             {
                 return; // 没有进行中的比赛
             }
@@ -319,15 +342,12 @@ namespace Yigu.AnnualTournament.Beta
             InformationManager.DisplayMessage(new InformationMessage($"年度比武在 {currentTournament.vneue_town.Name} 圆满结束！"));
 
             currentTournament = null; // 清除当前比赛
-            isActive = false;
+            isGameBeingHeld = false;
         }
-        public void GivePrizeToWinners()
-        {
-
-        }
+        
         public void StimulateTournament()
         {
-            if (isActive && currentTournament != null)
+            if (isGameBeingHeld && currentTournament != null)
             {
                 currentTournament.Stimulate();
             }
@@ -490,7 +510,8 @@ namespace Yigu.AnnualTournament.Beta
         public BiWuGame boxingGame;
         public BiWuGame fightGame;
         public MBList<ItemObject> prizeList;
-
+        public bool IsActive;
+        public bool AllFinished;
         public AnnualTournament(Town vneue_town)
         {
             this.vneue_town = vneue_town;
@@ -508,6 +529,8 @@ namespace Yigu.AnnualTournament.Beta
 
             fightGame = new BiWuGame(vneue_town, BiWuGame.EquipmentType.FullCharacterEquipment, participants.characters, this);
             // Campaign.Current.TournamentManager.AddTournament(fightGame);
+            IsActive = true;
+            AllFinished = false;
         }
         public MBList<ItemObject> GetBiWuPrizeList()
         {
@@ -523,6 +546,29 @@ namespace Yigu.AnnualTournament.Beta
             }
             return list;
         }
+        public void GivePrizeToOneWinner(CharacterObject winner, ItemObject prize)
+        {
+            if (winner.HeroObject.PartyBelongedTo == MobileParty.MainParty)
+            {
+                winner.HeroObject.PartyBelongedTo.ItemRoster.AddToCounts(prize, 1);
+                return;
+            }
+            if (winner.HeroObject.Clan != null)
+            {
+                GiveGoldAction.ApplyBetweenCharacters(null, winner.HeroObject.Clan.Leader, vneue_town.MarketData.GetPrice(prize, null, false, null), false);
+            }
+        }
+        public void GivePrizetoWinners()
+        {
+            for(int i=0;i<3; i++)
+            {
+                ItemObject prize = prizeList[i];
+                CharacterObject winner = participants.GetTopThreeParticipants()[i].character;
+                GivePrizeToOneWinner(winner,prize);
+            }
+
+        }
+
         public void OnStart()
         {
             //vneue_town.Settlement.CurrentSiegeState= Settlement.SiegeState.Invalid;
@@ -532,7 +578,8 @@ namespace Yigu.AnnualTournament.Beta
             //获得各个比赛的排名
             //根据排名生成分数
             //最终排名生成，奖品发放
-            
+            GivePrizetoWinners();
+            IsActive = false;
         }
         public void Stimulate()
         {
