@@ -321,7 +321,10 @@ namespace Yigu.AnnualTournament.Beta
             currentTournament = null; // 清除当前比赛
             isActive = false;
         }
+        public void GivePrizeToWinners()
+        {
 
+        }
         public void StimulateTournament()
         {
             if (isActive && currentTournament != null)
@@ -480,31 +483,46 @@ namespace Yigu.AnnualTournament.Beta
         {
             get; private set;
         }
-       
+
 
         public ArcheryTournamentGame archeryGame;
         public BiWuGame joustingGame;
         public BiWuGame boxingGame;
         public BiWuGame fightGame;
+        public MBList<ItemObject> prizeList;
 
         public AnnualTournament(Town vneue_town)
         {
             this.vneue_town = vneue_town;
+            this.prizeList = GetBiWuPrizeList();
 
             participants = new AnnualTournamentParticipants(GetParticipantCharacters());
-            archeryGame = new ArcheryTournamentGame(vneue_town,participants.characters);
+            archeryGame = new ArcheryTournamentGame(vneue_town, participants.characters);
             //Campaign.Current.TournamentManager.AddTournament(archeryGame);
 
-            joustingGame = new BiWuGame(vneue_town, BiWuGame.EquipmentType.Jousting, participants.characters,this);
+            joustingGame = new BiWuGame(vneue_town, BiWuGame.EquipmentType.Jousting, participants.characters, this);
             //Campaign.Current.TournamentManager.AddTournament(joustingGame);
 
             boxingGame = new BiWuGame(vneue_town, BiWuGame.EquipmentType.BoxingEquipment, participants.characters, this);
             //Campaign.Current.TournamentManager.AddTournament(boxingGame);
 
             fightGame = new BiWuGame(vneue_town, BiWuGame.EquipmentType.FullCharacterEquipment, participants.characters, this);
-           // Campaign.Current.TournamentManager.AddTournament(fightGame);
+            // Campaign.Current.TournamentManager.AddTournament(fightGame);
         }
-
+        public MBList<ItemObject> GetBiWuPrizeList()
+        {
+            MBList<ItemObject> list= new MBList<ItemObject> ();
+            string[] prizeIds = { "pernach_mace_t3", "noble_horse_western", "special_camel" };
+            foreach (var id in prizeIds)
+            {
+                ItemObject prize = Game.Current.ObjectManager.GetObject<ItemObject>(id);
+                if (prize != null)
+                {
+                    list.Add(prize);
+                }
+            }
+            return list;
+        }
         public void OnStart()
         {
             //vneue_town.Settlement.CurrentSiegeState= Settlement.SiegeState.Invalid;
